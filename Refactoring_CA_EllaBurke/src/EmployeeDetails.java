@@ -356,97 +356,97 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	// display search by ID dialog
 	private void displaySearchByIdDialog() {
 		if (isSomeoneToDisplay())
-			new SearchByIdDialog(EmployeeDetails.this);
+			new Search(EmployeeDetails.this, "ID");
 	}// end displaySearchByIdDialog
 
 	// display search by surname dialog
 	private void displaySearchBySurnameDialog() {
 		if (isSomeoneToDisplay())
-			new SearchBySurnameDialog(EmployeeDetails.this);
+			new Search(EmployeeDetails.this, "Surname");
 	}// end displaySearchBySurnameDialog
 
-//	// search Employee by ID
-//	public void searchEmployeeById() {
-//		boolean found = false;
-//
-//		try {// try to read correct correct from input
-//				// if any active Employee record search for ID else do nothing
-//			if (isSomeoneToDisplay()) {
-//				currentEmployee = employeeRecord.firstRecord(file, currentByteStart);// look for first record
-//				int firstId = currentEmployee.getEmployeeId();
-//				// if ID to search is already displayed do nothing else loop
-//				// through records
-//				if (searchByIdField.getText().trim().equals(idField.getText().trim()))
-//					found = true;
-//				else if (searchByIdField.getText().trim().equals(Integer.toString(currentEmployee.getEmployeeId()))) {
-//					found = true;
-//					displayRecords(currentEmployee);
-//				} // end else if
-//				else {
-//					currentEmployee = employeeRecord.nextRecord(file, currentByteStart);// look for next record
-//					// loop until Employee found or until all Employees have
-//					// been checked
-//					while (firstId != currentEmployee.getEmployeeId()) {
-//						// if found break from loop and display Employee details
-//						// else look for next record
-//						if (Integer.parseInt(searchByIdField.getText().trim()) == currentEmployee.getEmployeeId()) {
-//							found = true;
-//							displayRecords(currentEmployee);
-//							break;
-//						} else
-//							currentEmployee = employeeRecord.nextRecord(file, currentByteStart);// look for next record
-//					} // end while
-//				} // end else
-//					// if Employee not found display message
-//				if (!found)
-//					JOptionPane.showMessageDialog(null, "Employee not found!");
-//			} // end if
-//		} // end try
-//		catch (NumberFormatException e) {
-//			searchByIdField.setBackground(new Color(255, 150, 150));
-//			JOptionPane.showMessageDialog(null, "Wrong ID format!");
-//		} // end catch
-//		searchByIdField.setBackground(Color.WHITE);
-//		searchByIdField.setText("");
-//	}// end searchEmployeeByID
-//
-//	// search Employee by surname
-//	public void searchEmployeeBySurname() {
-//		boolean found = false;
-//		// if any active Employee record search for ID else do nothing
-//		if (isSomeoneToDisplay()) {
-//			currentEmployee = employeeRecord.firstRecord(file, currentByteStart);// look for first record
-//			String firstSurname = currentEmployee.getSurname().trim();
-//			// if ID to search is already displayed do nothing else loop through
-//			// records
-//			if (searchBySurnameField.getText().trim().equalsIgnoreCase(surnameField.getText().trim()))
-//				found = true;
-//			else if (searchBySurnameField.getText().trim().equalsIgnoreCase(currentEmployee.getSurname().trim())) {
-//				found = true;
-//				displayRecords(currentEmployee);
-//			} // end else if
-//			else {
-//				currentEmployee = employeeRecord.nextRecord(file, currentByteStart);// look for next record
-//				// loop until Employee found or until all Employees have been
-//				// checked
-//				while (!firstSurname.trim().equalsIgnoreCase(currentEmployee.getSurname().trim())) {
-//					// if found break from loop and display Employee details
-//					// else look for next record
-//					if (searchBySurnameField.getText().trim().equalsIgnoreCase(currentEmployee.getSurname().trim())) {
-//						found = true;
-//						displayRecords(currentEmployee);
-//						break;
-//					} // end if
-//					else
-//						currentEmployee = employeeRecord.nextRecord(file, currentByteStart);// look for next record
-//				} // end while
-//			} // end else
-//				// if Employee not found display message
-//			if (!found)
-//				JOptionPane.showMessageDialog(null, "Employee not found!");
-//		} // end if
-//		searchBySurnameField.setText("");
-//	}// end searchEmployeeBySurname
+	// search Employee by ID
+	public void searchEmployeeById() {
+		boolean found = false;
+
+		try {// try to read correct correct from input
+				// if any active Employee record search for ID else do nothing
+			if (isSomeoneToDisplay()) {
+				currentEmployee = employeeRecord.firstRecord(file, currentByteStart);// look for first record
+				int firstId = currentEmployee.getEmployeeId();
+				// if ID to search is already displayed do nothing else loop
+				// through records
+				if (searchByIdField.getText().trim().equals(idField.getText().trim()))
+					found = true;
+				else if (searchByIdField.getText().trim().equals(Integer.toString(currentEmployee.getEmployeeId()))) {
+					found = true;
+					displayRecords(currentEmployee);
+				} // end else if
+				else {
+					currentEmployee = employeeRecord.nextRecord(file, currentByteStart);// look for next record
+					// loop until Employee found or until all Employees have
+					// been checked
+					while (firstId != currentEmployee.getEmployeeId()) {
+						// if found break from loop and display Employee details
+						// else look for next record
+						if (Integer.parseInt(searchByIdField.getText().trim()) == currentEmployee.getEmployeeId()) {
+							found = true;
+							displayRecords(currentEmployee);
+							break;
+						} else
+							currentEmployee = employeeRecord.nextRecord(file, currentByteStart);// look for next record
+					} // end while
+				} // end else
+					// if Employee not found display message
+				if (!found)
+					JOptionPane.showMessageDialog(null, "Employee not found!");
+			} // end if
+		} // end try
+		catch (NumberFormatException e) {
+			searchByIdField.setBackground(new Color(255, 150, 150));
+			JOptionPane.showMessageDialog(null, "Wrong ID format!");
+		} // end catch
+		searchByIdField.setBackground(Color.WHITE);
+		searchByIdField.setText("");
+	}// end searchEmployeeByID
+
+	//search Employee by surname
+	public void searchEmployeeBySurname() {
+		boolean found = false;
+		// if any active Employee record search for ID else do nothing
+		if (isSomeoneToDisplay()) {
+			currentEmployee = employeeRecord.firstRecord(file, currentByteStart);// look for first record
+			String firstSurname = currentEmployee.getSurname().trim();
+			// if ID to search is already displayed do nothing else loop through
+			// records
+			if (searchBySurnameField.getText().trim().equalsIgnoreCase(surnameField.getText().trim()))
+				found = true;
+			else if (searchBySurnameField.getText().trim().equalsIgnoreCase(currentEmployee.getSurname().trim())) {
+				found = true;
+				displayRecords(currentEmployee);
+			} // end else if
+			else {
+				currentEmployee = employeeRecord.nextRecord(file, currentByteStart);// look for next record
+				// loop until Employee found or until all Employees have been
+				// checked
+				while (!firstSurname.trim().equalsIgnoreCase(currentEmployee.getSurname().trim())) {
+					// if found break from loop and display Employee details
+					// else look for next record
+					if (searchBySurnameField.getText().trim().equalsIgnoreCase(currentEmployee.getSurname().trim())) {
+						found = true;
+						displayRecords(currentEmployee);
+						break;
+					} // end if
+					else
+						currentEmployee = employeeRecord.nextRecord(file, currentByteStart);// look for next record
+				} // end while
+			} // end else
+				// if Employee not found display message
+			if (!found)
+				JOptionPane.showMessageDialog(null, "Employee not found!");
+		} // end if
+		searchBySurnameField.setText("");
+	}// end searchEmployeeBySurname
 
 	// get next free ID from Employees in the file
 	public int getNextFreeId() {
@@ -979,9 +979,10 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 				deleteRecord();
 		} else if (e.getSource() == searchBySurname) {
 			if (checkInput() && !checkForChanges())
-				new SearchBySurnameDialog(EmployeeDetails.this);
+				new Search(EmployeeDetails.this, "Surname");
 		}
 	}// end actionPerformed
+
 
 	// content pane for main dialog
 	private void createContentPane() {
