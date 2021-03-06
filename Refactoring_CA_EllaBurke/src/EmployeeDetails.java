@@ -58,7 +58,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 	private long currentByteStart = 0;
     private static RandomFile application = new RandomFile();
 	// display files in File Chooser only with extension .dat
-	private FileNameExtensionFilter datfilter = new FileNameExtensionFilter("dat files (*.dat)", "dat");
+	private static FileNameExtensionFilter datfilter = new FileNameExtensionFilter("dat files (*.dat)", "dat");
 	// hold file name and path for current file in use
 	private static File file;
 	// holds true or false if any changes are made for text fields
